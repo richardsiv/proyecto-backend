@@ -1,0 +1,21 @@
+extends ../layout/panel
+block list
+    main.container.mt-5.form
+        .row
+            .col-md-5.mx-auto
+                .formAdmin.form
+                    .logo.mb-3
+                    .col-md-12.text-center
+                        h3 Sistema de sesion
+                    form(method="POST" action="/api/login")
+                        .form-group
+                            label(for='usuario') Escribe tu usuario
+                            input#text.form-control(required="true"  type='text' name='usuario' placeholder='Ingresa tu usuario...')
+                        .form-group
+                            label(for='password') Ingresa la clave
+                            input#password.form-control(required="true" type='password' name='clave'  placeholder='Ingresa tu clave...')
+                        .col-md-12.text-center
+                            button(type="submit").btn.btn-info.btn-block.btn-radius Iniciar Sesión
+                        .form-group.text-right
+                            div.mt-5
+                                a(href='/api/register').text-decoration-none Registrate Aqui

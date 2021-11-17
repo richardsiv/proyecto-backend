@@ -1,0 +1,36 @@
+extends ../layout/panel
+block list
+    include ../includes/panel/navbar
+    .container
+        .row
+            .col-md-8.my-4.mx-auto
+                .container 
+                    .card.card-body
+                        if(!producto)
+                            a(href="/api/productos").btn.btn-success.text-uppercase Volver
+                        else
+                            form(action=`/api/actualizar/producto/${producto.id}` method='post')
+                                legend.text-center.card-title.text-uppercase Agregar Laptops 
+                                .form-group
+                                label.col-md-3.control-label(for='nombre') Nombre
+                                .col-md-12
+                                    input#nombre.form-control(name='nombre' value=producto.nombre required='true' type='text' placeholder='Escribe el nombre...')
+                                .form-group
+                                label.col-md-3.control-label(for='marca') Marca
+                                .col-md-12
+                                    input#marca.form-control(name='marca' value=producto.marca required='true' type='text' placeholder='Ingresa la marca...')
+                                .form-group
+                                label.col-md-3.control-label(for='procesador') Procesador
+                                .col-md-12
+                                    input#precio.form-control(name='procesador' value=producto.procesador required='true' type='text' placeholder='Ingresa el procesador...')
+                                .form-group
+                                label.col-md-3.control-label(for='cantidad') Cantidad
+                                .col-md-12
+                                    input#stock.form-control(name='cantidad' value=producto.cantidad required='true' type='text' placeholder='Ingresa cantidad...')
+                                .form-group
+                                label.col-md-3.control-label(for='precio') Precio
+                                .col-md-12
+                                    input#stock.form-control.mb-3(name='precio' value=producto.precio required='true' type='text' placeholder='Ingresa Precio...')
+                                .form-group
+                                .col-md-12.text-center
+                                    button.btn.btn-info.btn-block.font-weight-bold(type='submit') Actualizar

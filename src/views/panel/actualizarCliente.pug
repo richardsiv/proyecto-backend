@@ -1,0 +1,32 @@
+extends ../layout/panel
+block list
+    include ../includes/panel/navbar
+    .container
+        .row
+            .col-md-8.my-4.mx-auto
+                .container 
+                    .card.card-body
+                        if(!cliente)
+                            a(href="/api/clientes").btn.btn-success.text-uppercase Volver
+                        else
+                            form(action=`/api/actualizar/cliente/${cliente.id}` method='POST')
+                                legend.text-center.card-title.text-uppercase Clientes 
+                                .form-group
+                                label.col-md-3.control-label(for='nombre') Nombre
+                                .col-md-12
+                                    input#nombre.form-control(name='nombre' value=cliente.nombre required='true' type='text' placeholder='Escribe el nombre...')
+                                .form-group
+                                label.col-md-3.control-label(for='apellido') Apellido
+                                .col-md-12
+                                    input#marca.form-control(name='apellido' value=cliente.apellido required='true' type='text' placeholder='Ingresa el apellido...')
+                                .form-group
+                                label.col-md-3.control-label(for='cedula') DNI
+                                .col-md-12
+                                    input#precio.form-control(name='cedula' value=cliente.cedula required='true' type='text' placeholder='Ingresa el dni...')
+                                .form-group
+                                label.col-md-3.control-label(for='contacto') Contacto
+                                .col-md-12
+                                    input#imagen.form-control(name='contacto' value=cliente.contacto required='true' type='tel' placeholder='Ingresa numero de contacto...')
+                                    .form-group
+                                    .col-md-12.text-center
+                                        button.btn.btn-info.btn-block.font-weight-bold(type='submit') Actualizar

@@ -1,0 +1,22 @@
+body {
+  background: rgb(245, 243, 243);
+}
+html {
+	scroll-behavior: smooth;
+}
+.title-hero {
+  font-family: 'Courier New', Courier, monospace;
+}
+.compra{
+  height: 100%;
+  margin: 95px 0px;
+}
+
+.comprados{
+  background-color: rgb(214, 214, 214);
+  padding: 30px;
+  border-radius: 10px;
+}
+.default{
+  height: 500px;
+}

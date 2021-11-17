@@ -1,0 +1,20 @@
+###Crear usuario
+POST http://localhost:3000/api/register
+Content-Type: application/json
+
+{
+    "nombre": "Richard",
+    "apellido": "Siverio",
+    "usuario": "richi",
+    "email": "richard@prueba.com",
+    "clave": "richi"
+}
+
+###Iniciar sesion usuario
+POST http://localhost:3000/api/login
+Content-Type: application/json
+
+{
+    "usuario": "richi",
+    "clave": "richi"
+}

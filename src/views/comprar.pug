@@ -1,0 +1,15 @@
+extends ./layout/indexCompra
+block content
+    div.d-flex.flex-column.align-items-center.compra.row
+        h1.text-center Rellena el formulario
+        form(action='/api/crear/compra' method='post').container.col-3.comprados
+            div.mb-3
+                label(for="nombre").form-label Nombre...
+                input(type="text" id="nombre" name="nombre").form-control 
+            div.mb-3
+                label(for="descripcion" name="descripcion").form-label Descripcion...
+                input(type="text" id="descripcion" name="descripcion" ).form-control 
+            div.mb-3
+                label(for="email").form-label Correo...
+                input(type="email" id="email" name="email" ).form-control 
+            button(type="submit").btn.btn-primary Enviar

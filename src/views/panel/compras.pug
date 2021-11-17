@@ -1,0 +1,23 @@
+extends ../layout/panel
+block list
+    include ../includes/panel/navbar
+    .container 
+        .row 
+            .col-md-12.mx-auto
+                if(compras.length > 0)
+                    table.table.table-striped.mb-5.bg-info
+                        table.table.table-striped.mb-5
+                            thead.background-table.text-center.bg-danger.text-white
+                                th(scope='col') Id
+                                th(scope='col') Nombre
+                                th(scope='col') Descripcion
+                                th(scope='col') Email
+                                for contact of compras
+                                    tbody.text-center
+                                        tr
+                                        th(scope='row') #{contact.id}
+                                        th(scope='row') #{contact.nombre}
+                                        th(scope='row') #{contact.descripcion}
+                                        th(scope='row')  #{contact.email}
+                else 
+                    p.text-center.my-5.font-weight-bold.bg-info.text-white.p-2 No existen compras registradas

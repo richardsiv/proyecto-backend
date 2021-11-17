@@ -1,0 +1,65 @@
+extends ../layout/panel
+block list
+    include ../includes/panel/navbar
+    .container
+        .row
+            .col-md-8.my-4.mx-auto
+                .container 
+                    .card.card-body
+                        form(action='/api/crear/producto' method='post' enctype='multipart/form-data')
+                                legend.text-center.card-title.text-uppercase Agregar Laptops 
+                                .form-group
+                                label.col-md-3.control-label(for='nombre') Nombre
+                                .col-md-12
+                                    input#nombre.form-control(name='nombre' required='true' type='text' placeholder='Escribe el nombre...')
+                                .form-group
+                                label.col-md-3.control-label(for='marca') Marca
+                                .col-md-12
+                                    input#marca.form-control(name='marca' required='true' type='text' placeholder='Ingresa la marca...')
+                                .form-group
+                                label.col-md-3.control-label(for='procesador') Procesador
+                                .col-md-12
+                                    input#precio.form-control(name='procesador' required='true' type='text' placeholder='Ingresa el procesador...')
+                                .form-group
+                                label.col-md-3.control-label(for='file') Imagen
+                                .col-md-12
+                                    input#precio.form-control(name='file' required='true' type='file' placeholder='Ingresa la imagen...')
+                                .form-group
+                                label.col-md-3.control-label(for='cantidad') Cantidad
+                                .col-md-12
+                                    input#stock.form-control(name='cantidad' required='true' type='text' placeholder='Ingresa cantidad...')
+                                .form-group
+                                label.col-md-3.control-label(for='precio') Precio
+                                .col-md-12
+                                    input#stock.form-control.mb-3(name='precio' required='true' type='text' placeholder='Ingresa Precio...')
+                                .col-md-12.text-center
+                                    button.btn.btn-primary.btn-block.font-weight-bold(type='submit') Agregar
+    .container 
+        .row 
+            .col-md-10.mx-auto
+                if(productos.length > 0)
+                    table.table.table-striped.mb-5.bg-info
+                        table.table.table-striped.mb-5
+                            thead.background-table.text-center.bg-danger.text-white
+                                th(scope='col') Nombre
+                                th(scope='col') Marca
+                                th(scope='col') Procesador
+                                th(scope='col') Cantidad
+                                th(scope='col') Precio
+                                th(scope='col') Imagen
+                                th(scope='col') Editar/Eliminar
+                                for product of productos
+                                    tbody.text-center
+                                        tr
+                                        th(scope='row') #{product.nombre}
+                                        th(scope='row') #{product.marca}
+                                        th(scope='row') #{product.procesador}
+                                        th(scope='row')  #{product.cantidad}
+                                        th(scope='row')  #{product.precio}$
+                                        td
+                                            img(src=`/uploads/${product.file}` class="img-fluid img-product"  alt="imagen")
+                                        td
+                                            a(href=`/api/actualizar/producto/${product.id}`).btn.btn-info Editar
+                                            a(href=`/api/eliminar/producto/${product.id}`).btn.btn-danger.m-2 X
+                else 
+                    p.text-center.my-5.font-weight-bold.bg-info.text-white.p-2 No existen productos registrados

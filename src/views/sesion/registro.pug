@@ -1,0 +1,30 @@
+extends ../layout/panel
+block list
+    main.container.mt-5.form
+        .row
+            .col-md-5.mx-auto
+                .formAdmin.form
+                    .logo.mb-3
+                    .col-md-12.text-center
+                        h3 Sistema de sesion
+                    form(method="POST" action="/api/register")
+                        .form-group
+                            label(for='nombre') Escribe tu nombre
+                            input#text.form-control(required="true"  type='text' name='nombre' placeholder='Ingresa tu nombre...')
+                        .form-group
+                            label(for='apellido') Escribe tu apellido
+                            input#text.form-control(required="true"  type='text' name='apellido' placeholder='Ingresa tu apellido...')
+                        .form-group
+                            label(for='usuario') Escribe tu usuario
+                            input#text.form-control(required="true"  type='text' name='usuario' placeholder='Ingresa tu usuario...')
+                        .form-group
+                            label(for='email') Escribe tu email
+                            input#email.form-control(required="true"  type='email' name='email' placeholder='Ingresa tu email...')
+                        .form-group
+                            label(for='clave') Escribe tu clave
+                            input#password.form-control(required="true"  type='password' name='clave' placeholder='Ingresa tu clave...')
+                        .col-md-12.text-center
+                            button(type="submit").btn.btn-info.btn-block.btn-radius Registrarse
+                        .form-group.text-right
+                            div.mt-5
+                                a(href='/api/login').text-decoration-none Iniciar sesion

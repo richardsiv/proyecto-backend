@@ -1,0 +1,16 @@
+###Crear Cliente
+POST http://localhost:3000/api/crear/cliente
+Content-Type: application/json
+
+{
+    "nombre": "Angel",
+    "apellido": "Dominguez",
+    "cedula": "239239232",
+    "contacto": 4246814762
+}
+
+###Obtener Productos
+GET http://localhost:3000/api/productos
+
+###Obtener producto por id
+GET http://localhost:3000/api/producto/618ffed536ef040808bc7760

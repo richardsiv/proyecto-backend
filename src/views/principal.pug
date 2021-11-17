@@ -1,0 +1,52 @@
+extends ./layout/index
+block content
+    div.fadeIn.mt-5 
+        h1.text-center Bienvenido a MarketLaps
+        main.container.mt-5
+            .row.p-5
+                .col-md-5
+                    img(src="/images/principal.jpg", alt="No content").img-fluid.py-4.hero-image
+                .col-md-7
+                    h2.text-left.title-hero.pt-4 MarketLaps, tienda dedicada a la venta de laptops.
+                    p Somos una tienda 100% dedica a satisfacer las necesidades de los clientes con laptops de marca y renombre, pide la tuya ya!
+                    a(href="#ordenes").btn.btn-warning.cursor-pointer.mt-2 Ver Ordenes
+    section.container.mt-4.mb-5.fadeIn.p-4
+        #carouselExampleControls.carousel.slide(data-ride='carousel')
+            .carousel-inner.flex
+                .carousel-item.active
+                    img.d-block.w-100.default(src='images/carrousel-1.jpg' alt='No content')
+                .carousel-item
+                    img.d-block.w-100.default(src='images/carrousel-2.jpg' alt='No content')
+            a.carousel-control-prev(href='#carouselExampleControls' role='button' data-slide='prev')
+                span.carousel-control-prev-icon(aria-hidden='true')
+                span.sr-only Previous
+            a.carousel-control-next(href='#carouselExampleControls' role='button' data-slide='next')
+                span.carousel-control-next-icon(aria-hidden='true')
+                span.sr-only Next
+    if(productos.length > 0)
+        h1(id="ordenes").text-center.mt-4 Ordenes
+        section.container.mt-4.mb-5.fadeIn.p-4
+            .row
+                for producto of productos
+                    .col-md-4 
+                        .card
+                            img.card-img-top(src=`/uploads/${producto.file}` alt=`${producto.nombre}`)
+                            hr
+                            .card-body
+                                h4.card-title.text-center #{producto.nombre}
+                                p.card-text.font-weight-bold Marca: 
+                                    span.font-weight-normal #{producto.marca}
+                                p.card-text.font-weight-bold Procesador: 
+                                    span.font-weight-normal #{producto.procesador}
+                                p.card-text.font-weight-bold Cantidad: 
+                                    span.font-weight-normal #{producto.cantidad}
+                                p.card-text.font-weight-bold Precio: 
+                                    span.font-weight-normal #{producto.precio} $
+                                a(href="/comprar").btn.btn-primary.btn-block Comprar
+    else
+        h5(id="ordenes").text-center.text-uppercase-font-weigth-bold.mt-4 No hay ordenes para ver...
+        hr
+    h2(id="nosotros").text-center.mt-4 Nosotros
+    section.container.p-3.my-4
+        p.text-center Sin duda el compromiso más importante es el que tenemos con nuestros clientes, la razón y centro de todas nuestras actividades. Nuestros clientes creen en nosotros por el conocimiento, los servicios, las soluciones que ofrecemos. Nos compenetramos con nuestros clientes de forma tal, que observamos como nuestros productos sirven y ayudan al desempeño exitoso de sus actividades, lo cual se traduce en mayor eficiencia de desempeño, productividad y rentabilidad.
+
